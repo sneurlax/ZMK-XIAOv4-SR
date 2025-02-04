@@ -45,7 +45,7 @@ RC(4,0) RC(4,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                                 
     };
 };
 
-&spi1 {
+&spi0 {
     status = "okay";
     cs-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
     shifter: 595@0 {
