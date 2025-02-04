@@ -1,0 +1,19 @@
+if SHIELD_SKREE-CUSTOM_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Skree Custom"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_STUDIO
+  default y
+
+endif
+
+if SHIELD_SKREE-CUSTOM_LEFT || SHIELD_SKREE-CUSTOM_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
