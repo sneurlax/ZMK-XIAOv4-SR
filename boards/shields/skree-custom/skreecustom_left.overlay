@@ -1,8 +1,4 @@
-#include "skree-custom.dtsi"
-
- &default_transform {
-    col-offset = <6>;
-};
+#include "skreecustom.dtsi"
 
 &spi1 {
     status = "okay";

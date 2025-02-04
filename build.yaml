@@ -23,9 +23,8 @@ include:
 #   - board: nice_nano
 #     shield: lily58_right
   - board: seeeduino_xiao_ble
-    shield: skree-custom_left
-    snippet: studio-rpc-usb-uart
+    shield: skreecustom_left
   - board: nseeeduino_xiao_ble
-    shield: skree-custom_right
+    shield: skreecustom_right
   - board: seeeduino_xiao_ble
     shield: settings_reset 
