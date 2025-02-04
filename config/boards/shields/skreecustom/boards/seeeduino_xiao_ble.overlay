@@ -18,6 +18,19 @@
 	};
 };
 
+&spi1 {
+    status = "okay";
+    cs-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        reg = <0>;
+        #gpio-cells = <2>;
+        ngpios = <8>;
+    };
+};
 
  &pinctrl {
 	spi3_default: spi3_default {
