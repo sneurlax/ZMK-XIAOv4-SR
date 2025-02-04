@@ -4,9 +4,7 @@
     col-offset = <6>;
 };
 
-kscan0: kscan_0 {
-    compatible = "zmk,kscan-gpio-matrix";
-    diode-direction = "col2row";
+&kscan_0 {
     col-gpios
         = <&shifter 0 GPIO_ACTIVE_HIGH>
         , <&shifter 1 GPIO_ACTIVE_HIGH>
