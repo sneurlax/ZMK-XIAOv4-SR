@@ -23,6 +23,8 @@
                            &kp LSHFT  &kp SPACE  &kp BSPC    &kp DEL  &kp RET   &kp RGUI
                            &kp LCTRL  &kp LALT   &mo 1       &mo 2    &kp RALT  &kp RCTRL
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+
         };
 
         layer_1 {
