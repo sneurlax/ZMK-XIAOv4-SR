@@ -67,7 +67,6 @@
         { "row": 4, "col": 11, "x": 11, "y": 4 },
         { "row": 4, "col": 12, "x": 12, "y": 4 },
       
-        { "row": 5, "col":  4, "x":  4, "y": 5 },
         { "row": 5, "col":  5, "x":  5, "y": 5 },
       
         { "row": 6, "col":  3, "x":  3, "y": 6 },
@@ -86,8 +85,5 @@
       ]
     }
   },
-  "sensors": [
-    { "ref":  "left_encoder", "name":  "encoder_left", "identifier":  "encoder_left", "compatible": "alps,ec11", "enabled": false },
-    { "ref": "right_encoder", "name": "encoder_right", "identifier": "encoder_right", "compatible": "alps,ec11", "enabled": false }
-  ]
+  "sensors": [  { "ref": "left_encoder", "name": "encoder_left", "identifier": "encoder_left", "compatible": "alps,ec11", "enabled": false }]
 }
