@@ -34,6 +34,15 @@ config PMW3610_SWAP_XY
 config PMW3610_REPORT_INTERVAL_MIN
     default 8
 
+config ZMK_RGB_UNDERGLOW_EXT_POWER
+    default n
+
+config ZMK_KSCAN_MATRIX_WAIT_BEFORE_INPUTS
+    default 0
+
+config ZMK_KSCAN_MATRIX_WAIT_BETWEEN_OUTPUTS
+    default 1
+
 endif
 
 config ZMK_RGB_UNDERGLOW
