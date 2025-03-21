@@ -1,0 +1,41 @@
+if SHIELD_SKREECUSTOM_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Skree Custom"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_SKREECUSTOM_LEFT || SHIELD_SKREECUSTOM_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SLEEP
+    default y
+
+config ZMK_POINTING
+    default y
+
+config ZMK_POINTING_SMOOTH_SCROLLING
+    default n
+
+config SPI
+    default y
+
+config PMW3610
+    default y
+
+config PMW3610_SWAP_XY
+    default y
+
+config PMW3610_REPORT_INTERVAL_MIN
+    default 8
+
+endif
+
+config ZMK_RGB_UNDERGLOW
+    default y
+    imply WS2812_STRIP

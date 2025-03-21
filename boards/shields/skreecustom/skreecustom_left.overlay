@@ -1,0 +1,77 @@
+#include "skreecustom.dtsi"
+
+//&left_encoder {
+//	status = "okay";
+//};
+
+&kscan0 {
+    col-gpios
+        = <&shifter 0 GPIO_ACTIVE_HIGH>
+        , <&shifter 1 GPIO_ACTIVE_HIGH>
+        , <&shifter 2 GPIO_ACTIVE_HIGH>
+        , <&shifter 3 GPIO_ACTIVE_HIGH>
+        , <&shifter 4 GPIO_ACTIVE_HIGH>
+        , <&shifter 5 GPIO_ACTIVE_HIGH>
+//      , <&shifter 6 GPIO_ACTIVE_HIGH>
+//        , <&shifter 7 GPIO_ACTIVE_HIGH>
+        ;
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 19)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 15)>,
+                <NRF_PSEL(SPIM_MISO, 0, 15)>;
+        };
+    };
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 19)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 15)>,
+                <NRF_PSEL(SPIM_MISO, 0, 15)>;
+            low-power-enable;
+        };
+    };
+};
+
+nice_view_spi: &spi2 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
+};
+
+/ {
+    chosen {
+        zephyr,display = &nice_view;
+    };
+};
+
+&trackball_peripheral_listener {
+    status = "okay";
+};
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+&spi1 {
+    cs-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+
+    trackball_central: trackball_central@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        cpi = <600>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+    };
+};
+
+// Overrides for the input listener node
+&trackball_central_listener {
+    status = "okay";
+    device = <&trackball_central>;
+};

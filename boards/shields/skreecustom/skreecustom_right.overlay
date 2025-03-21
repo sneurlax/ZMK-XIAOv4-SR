@@ -1,7 +1,7 @@
 #include "skreecustom.dtsi"
 
  &default_transform {
-    col-offset = <7>;
+    col-offset = <6>;
 };
 
 &kscan0 {
@@ -12,7 +12,7 @@
         , <&shifter 3 GPIO_ACTIVE_HIGH>
         , <&shifter 4 GPIO_ACTIVE_HIGH>
         , <&shifter 5 GPIO_ACTIVE_HIGH>
-        , <&shifter 6 GPIO_ACTIVE_HIGH>
+//      , <&shifter 6 GPIO_ACTIVE_HIGH>
 //        , <&shifter 7 GPIO_ACTIVE_HIGH>
         ;
 };
@@ -49,25 +49,24 @@ nice_view_spi: &spi2 {
     };
 };
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 &spi1 {
-    status = "okay";
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>; 
-    trackball: trackball@0 {
+    cs-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+
+    trackball_peripheral: trackball_peripheral@0 {
         status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; 
-        scroll-layers = <4>;
+        irq-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        cpi = <600>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
-/ {
-  trackball_listener {
-    compatible = "zmk,input-listener";
-    device = <&trackball>;
-  };
+
+// Overrides for the input-split child node
+&trackball_peripheral_split {
+    device = <&trackball_peripheral>;
 };
