@@ -35,20 +35,6 @@
     };
 };
 
-nice_view_spi: &spi2 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi2_default>;
-    pinctrl-1 = <&spi2_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
-};
-
-/ {
-    chosen {
-        zephyr,display = &nice_view;
-    };
-};
-
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 &spi1 {
     cs-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
@@ -70,3 +56,19 @@ nice_view_spi: &spi2 {
 &trackball_peripheral_split {
     device = <&trackball_peripheral>;
 };
+
+
+nice_view_spi: &spi2 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
+};
+
+/ {
+    chosen {
+        zephyr,display = &nice_view;
+    };
+};
+

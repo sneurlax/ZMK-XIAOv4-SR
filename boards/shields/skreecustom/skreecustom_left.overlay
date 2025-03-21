@@ -17,6 +17,8 @@
         ;
 };
 
+
+
 &pinctrl {
     spi1_default: spi1_default {
         group1 {
@@ -32,20 +34,6 @@
                 <NRF_PSEL(SPIM_MISO, 0, 15)>;
             low-power-enable;
         };
-    };
-};
-
-nice_view_spi: &spi2 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi2_default>;
-    pinctrl-1 = <&spi2_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
-};
-
-/ {
-    chosen {
-        zephyr,display = &nice_view;
     };
 };
 
@@ -75,3 +63,18 @@ nice_view_spi: &spi2 {
     status = "okay";
     device = <&trackball_central>;
 };
+
+nice_view_spi: &spi2 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
+};
+
+/ {
+    chosen {
+        zephyr,display = &nice_view;
+    };
+};
+
