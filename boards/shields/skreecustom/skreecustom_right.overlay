@@ -1,17 +1,17 @@
 #include "skreecustom.dtsi"
 
  &default_transform {
-    col-offset = <2>;
+    col-offset = <6>;
 };
 
 &kscan0 {
     col-gpios
-        = <&gpio0 26 GPIO_ACTIVE_HIGH>
-        , <&gpio1 1 GPIO_ACTIVE_HIGH>
-//        , <&shifter 2 GPIO_ACTIVE_HIGH>
-//        , <&shifter 3 GPIO_ACTIVE_HIGH>
-//        , <&shifter 4 GPIO_ACTIVE_HIGH>
-//        , <&shifter 5 GPIO_ACTIVE_HIGH>
+        = <&shifter 0 GPIO_ACTIVE_HIGH>
+        , <&shifter 1 GPIO_ACTIVE_HIGH>
+        , <&shifter 2 GPIO_ACTIVE_HIGH>
+        , <&shifter 3 GPIO_ACTIVE_HIGH>
+        , <&shifter 4 GPIO_ACTIVE_HIGH>
+        , <&shifter 5 GPIO_ACTIVE_HIGH>
 //      , <&shifter 6 GPIO_ACTIVE_HIGH>
 //        , <&shifter 7 GPIO_ACTIVE_HIGH>
         ;
@@ -42,3 +42,16 @@
 };
 
 
+nice_view_spi: &spi2 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
+};
+
+/ {
+    chosen {
+        zephyr,display = &nice_view;
+    };
+};
