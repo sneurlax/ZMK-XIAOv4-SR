@@ -23,7 +23,7 @@
 &kp GRAVE  &kp Z   &kp X     &kp C      &kp V      &kp B       &kp N    &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
 &kp LEFT   &kp UP  &kp DOWN  &kp RIGHT                                             &kp LBKT   &kp RBKT  &kp RALT  &kp RCTRL
                              &kp LSHFT  &kp SPACE  &kp BSPC    &kp DEL  &kp RET    &kp RGUI
-                                        &kp LALT   &mo 1       &mo 2    &kp RCTRL
+                                        &kp LALT   &mo 1       &kp ESC    &kp RCTRL
             >;
         };
 
