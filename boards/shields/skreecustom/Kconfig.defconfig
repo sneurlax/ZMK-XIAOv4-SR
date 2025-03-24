@@ -1,4 +1,4 @@
-if SHIELD_SKREECUSTOM_RIGHT
+if SHIELD_SKREECUSTOM_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Skree Custom"
