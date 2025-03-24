@@ -12,12 +12,10 @@
         , <&shifter 3 GPIO_ACTIVE_HIGH>
         , <&shifter 4 GPIO_ACTIVE_HIGH>
         , <&shifter 5 GPIO_ACTIVE_HIGH>
-//      , <&shifter 6 GPIO_ACTIVE_HIGH>
+      , <&shifter 6 GPIO_ACTIVE_HIGH>
 //        , <&shifter 7 GPIO_ACTIVE_HIGH>
         ;
 };
-
-
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 &spi1 {
@@ -42,16 +40,8 @@
 };
 
 
-nice_view_spi: &spi2 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi2_default>;
-    pinctrl-1 = <&spi2_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
-};
-
-/ {
-    chosen {
-        zephyr,display = &nice_view;
-    };
+// Overrides for the input listener node
+&trackball_central_listener {
+    status = "okay";
+    device = <&trackball_central>;
 };
