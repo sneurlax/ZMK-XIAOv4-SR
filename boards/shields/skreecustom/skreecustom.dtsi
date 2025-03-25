@@ -76,7 +76,7 @@
         status = "disabled";
         device = <&trackball_peripheral_split>;
 	input-processors =
-	//<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>
+	<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
 	<&zip_temp_layer 3 500>;
     };
 //left hand trackball
