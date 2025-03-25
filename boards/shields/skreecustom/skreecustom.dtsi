@@ -1,4 +1,4 @@
-#include <dt-bindings/zmk/matrix_transform.h>
+ble#include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
@@ -51,7 +51,7 @@
         a-gpios = <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
-        status = "disabled";
+        status = "enabled";
     };
 
 //right hand trackball
