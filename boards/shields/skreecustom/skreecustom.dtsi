@@ -58,7 +58,6 @@
         sensors = <&left_encoder>;
         triggers-per-rotation = <15>;
     };
-};
 
 //right hand trackball
     split_inputs {
