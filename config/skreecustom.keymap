@@ -52,8 +52,8 @@
 &kp LSHFT   &kp A   &kp S   &kp D         &kp F       &kp G          &kp H        &kp J       &kp K          &kp L    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &kp LCTRL   &kp Z   &kp X   &kp C         &kp V       &kp B          &kp N        &kp M       &kp COMMA      &kp DOT  &kp FSLH          &kp APOSTROPHE
                                           &kp C_MUTE  &kp HOME
-                            &kp LEFT_WIN  &kp SPACE   &LCLCK LCLK    &RCLCK RCLK  &kp RET     &kp ALT_ERASE
-                            &kp LEFT_ALT  &kp DELETE  &mo 1          &mo 2        &kp DELETE  &kp RIGHT_ALT
+                            &kp LEFT_WIN  &mo 1       &LCLCK LCLK    &RCLCK RCLK  &mo 2       &kp ALT_ERASE
+                            &kp LEFT_ALT  &kp DELETE  &kp SPACE      &kp ENTER    &kp DELETE  &kp RIGHT_ALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
